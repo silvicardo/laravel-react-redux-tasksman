@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import InvalidFeedback from './secondary/InvalidFeedback'
 
 class SingleProject extends Component {
   constructor (props) {
@@ -73,9 +74,7 @@ class SingleProject extends Component {
   renderErrorFor (field) {
     if (this.hasErrorFor(field)) {
       return (
-        <span className='invalid-feedback'>
-          <strong>{this.state.errors[field][0]}</strong>
-        </span>
+        <InvalidFeedback error={this.state.errors[field][0]} />
       )
     }
   }
