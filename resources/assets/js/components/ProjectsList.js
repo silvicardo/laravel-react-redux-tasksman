@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import ProjectsLinks from './secondary/ProjectLinks'
 
 class ProjectsList extends Component {
+  
   constructor () {
     super()
 
@@ -33,21 +35,7 @@ class ProjectsList extends Component {
                 <Link className='btn btn-primary btn-sm mb-3' to='/create'>
                   Create new project
                 </Link>
-
-                <ul className='list-group list-group-flush'>
-                  {projects.map(project => (
-                    <Link
-                      className='list-group-item list-group-item-action d-flex justify-content-between align-items-center'
-                      to={`/${project.id}`}
-                      key={project.id}
-                    >
-                      {project.name}
-                      <span className='badge badge-primary badge-pill'>
-                        {project.tasks_count}
-                      </span>
-                    </Link>
-                  ))}
-                </ul>
+                <ProjectsLinks projects={projects} />
               </div>
             </div>
           </div>
