@@ -2,27 +2,30 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ProjectsLinks from './secondary/ProjectLinks'
+import {connect} from 'react-redux'
+import {getProjects} from './../actions/actionCreators'
 
 class ProjectsList extends Component {
-  
-  constructor () {
-    super()
 
-    this.state = {
-      projects: []
-    }
+  constructor (props) {
+    super(props)
+
   }
 
   componentDidMount () {
-    axios.get('/api/projects').then(response => {
-      this.setState({
-        projects: response.data
-      })
-    })
+    // axios.get('/api/projects').then(response => {
+    //   this.setState({
+    //     projects: response.data
+    //   })
+    // })
+    this.props.getProjects()
   }
 
   render () {
-    const { projects } = this.state
+    //con redux troviamo grazie
+    //a mapStateToProps i projects in
+    //props
+    const { projects } = this.props
 
     return (
       <div className='container py-4'>
@@ -45,4 +48,10 @@ class ProjectsList extends Component {
   }
 }
 
-export default ProjectsList
+function mapStateToProps(reduxState){
+  return {
+    projects: reduxState.projects
+  }
+}
+
+export default connect(mapStateToProps,{getProjects})(ProjectsList)
