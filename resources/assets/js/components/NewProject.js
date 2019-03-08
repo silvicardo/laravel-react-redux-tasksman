@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import NewProjectForm from './secondary/NewProjectForm'
+import {connect} from 'react-redux'
+import {addProject} from './../actions/actionCreators'
 
 class NewProject extends Component {
   constructor (props) {
@@ -15,17 +17,30 @@ class NewProject extends Component {
   }
 
   handleCreateNewProject (project) {
-    axios
-      .post('/api/projects', project)
-      .then(response => {
-        // redirect to the homepage
-        this.props.history.push('/')
+
+    this.props.addProject(project,
+    ()=>{//success callback
+      // redirect to the homepage
+    this.props.history.push('/')},
+    (error)=>{
+      console.log(error);
+      this.setState({
+        errors: error.response.data.errors
       })
-      .catch(error => {
-        this.setState({
-          errors: error.response.data.errors
-        })
-      })
+
+    })
+  // )
+  //   axios
+  //     .post('/api/projects', project)
+  //     .then(response => {
+  //       // redirect to the homepage
+  //       this.props.history.push('/')
+  //     })
+  //     .catch(error => {
+  //       this.setState({
+  //         errors: error.response.data.errors
+  //       })
+  //     })
   }
 
   render () {
@@ -53,4 +68,4 @@ class NewProject extends Component {
   }
 }
 
-export default NewProject
+export default connect(null, { addProject })(NewProject)

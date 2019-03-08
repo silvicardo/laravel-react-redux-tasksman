@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {getSingleProject} from './../actions/actionCreators'
 import NewTaskForm from './secondary/NewTaskForm'
 import SingleProjectTasksList from './secondary/SingleProjectTasksList'
 import InvalidFeedback from './secondary/InvalidFeedback'
@@ -9,8 +11,8 @@ class SingleProject extends Component {
     super(props)
 
     this.state = {
-      project: {},
-      tasks: [],
+      // project: {},
+      // tasks: [],
       errors: []
     }
 
@@ -23,15 +25,17 @@ class SingleProject extends Component {
     )
   }
 
-  componentDidMount () {
+  componentWillMount () {
     const projectId = this.props.match.params.id
 
-    axios.get(`/api/projects/${projectId}`).then(response => {
-      this.setState({
-        project: response.data,
-        tasks: response.data.tasks
-      })
-    })
+    this.props.getSingleProject(projectId);
+    //
+    // axios.get(`/api/projects/${projectId}`).then(response => {
+    //   this.setState({
+    //     project: response.data,
+    //     tasks: response.data.tasks
+    //   })
+    // })
   }
 
   handleAddNewTask(task) {
@@ -70,7 +74,8 @@ class SingleProject extends Component {
   }
 
   render () {
-    const { project, tasks } = this.state
+    const { project} = this.props
+    console.log('project',project);
 
     return (
       <div className='container py-4'>
@@ -93,13 +98,14 @@ class SingleProject extends Component {
 
                 <NewTaskForm
                 manageSubmit={this.handleAddNewTask}
-                projectId={this.state.project.id}
+                projectId={project.id}
                 errors={this.state.errors}
                 />
 
+
                 <SingleProjectTasksList
                 onTaskCompletion={this.handleMarkTaskAsCompleted}
-                tasks={tasks}
+                tasks={project.tasks}
                 />
               </div>
             </div>
@@ -110,4 +116,10 @@ class SingleProject extends Component {
   }
 }
 
-export default SingleProject
+function mapStateToProps(reduxState){
+  return {
+    project: reduxState.workingProject
+  }
+}
+
+export default connect(mapStateToProps,{getSingleProject})(SingleProject)

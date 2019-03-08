@@ -13,11 +13,7 @@ class ProjectsList extends Component {
   }
 
   componentDidMount () {
-    // axios.get('/api/projects').then(response => {
-    //   this.setState({
-    //     projects: response.data
-    //   })
-    // })
+
     this.props.getProjects()
   }
 
@@ -26,6 +22,8 @@ class ProjectsList extends Component {
     //a mapStateToProps i projects in
     //props
     const { projects } = this.props
+
+    console.log(projects);
 
     return (
       <div className='container py-4'>

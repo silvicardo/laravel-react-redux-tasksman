@@ -18,20 +18,20 @@ function getProjectsAction(projects){
 }
 
 //PLACEHOLDERS ACTIONS
-// function addProjectAction(project){
-//   return {
-//     type: ADD_PROJECTS,
-//     project //project: project
-//   }
-// }
-//
-// function getSingleProjectAction(projectId){
-//   return {
-//     type: GET_SINGLE_PROJECT,
-//     projectId
-//   }
-// }
-//
+function addProjectAction(project){
+  return {
+    type: ADD_PROJECT,
+    project //project: project
+  }
+}
+
+function getSingleProjectAction(project){
+  return {
+    type: GET_SINGLE_PROJECT,
+    project
+  }
+}
+
 // function projectIsCompletedAction(projectId){
 //   return {
 //     type: PROJECT_COMPLETED,
@@ -69,17 +69,32 @@ export function getProjects(){
 }
 
 //PLACEHOLDERS THUNKS
-//
-// export function addProject(project){
-//   return dispatch => {
-//     return
-// }
-//
-// export function getSingleProject(projectId){
-//   return dispatch => {
-//     return
-// }
-//
+
+export function addProject(project, success, fail){
+  return dispatch => {
+    return axios.post('/api/projects', project)
+      .then(response => {
+        dispatch(addProjectAction(project))
+        success()
+      })
+      .catch(error => {
+        fail(error)
+      })
+    }
+}
+
+export function getSingleProject(projectId){
+  return dispatch => {
+    return axios.get(`/api/projects/${projectId}`)
+    .then(response => {
+      dispatch(getSingleProjectAction(response.data))
+    })
+    .catch(err=>{
+      console.log('error', err);
+    })
+  }
+}
+
 // export function markTaskAsCompleted(projectId){
 //   return dispatch => {
 //     return
