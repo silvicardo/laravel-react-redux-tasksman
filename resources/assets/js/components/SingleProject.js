@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import NewTaskForm from './secondary/NewTaskForm'
+import SingleProjectTasksList from './secondary/SingleProjectTasksList'
 import InvalidFeedback from './secondary/InvalidFeedback'
 
 class SingleProject extends Component {
@@ -9,14 +11,13 @@ class SingleProject extends Component {
     this.state = {
       project: {},
       tasks: [],
-      title: '',
       errors: []
     }
 
-    this.handleFieldChange = this.handleFieldChange.bind(this)
     this.handleAddNewTask = this.handleAddNewTask.bind(this)
-    this.hasErrorFor = this.hasErrorFor.bind(this)
-    this.renderErrorFor = this.renderErrorFor.bind(this)
+
+    this.handleMarkTaskAsCompleted = this.handleMarkTaskAsCompleted.bind(
+      this)
     this.handleMarkProjectAsCompleted = this.handleMarkProjectAsCompleted.bind(
       this
     )
@@ -33,31 +34,14 @@ class SingleProject extends Component {
     })
   }
 
-  handleFieldChange (event) {
-    this.setState({
-      title: event.target.value
-    })
-  }
-
-  handleAddNewTask (event) {
-    event.preventDefault()
-
-    const task = {
-      title: this.state.title,
-      project_id: this.state.project.id
-    }
+  handleAddNewTask(task) {
 
     axios
       .post('/api/tasks', task)
       .then(response => {
-        // clear form input
-        this.setState({
-          title: ''
-        })
-
         // add new task to list of tasks
         this.setState(prevState => ({
-          tasks: prevState.tasks.concat(response.data)
+          tasks: [...prevState.tasks, response.data]
         }))
       })
       .catch(error => {
@@ -65,18 +49,6 @@ class SingleProject extends Component {
           errors: error.response.data.errors
         })
       })
-  }
-
-  hasErrorFor (field) {
-    return !!this.state.errors[field]
-  }
-
-  renderErrorFor (field) {
-    if (this.hasErrorFor(field)) {
-      return (
-        <InvalidFeedback error={this.state.errors[field][0]} />
-      )
-    }
   }
 
   handleMarkProjectAsCompleted () {
@@ -119,46 +91,16 @@ class SingleProject extends Component {
 
                 <hr />
 
-                <form onSubmit={this.handleAddNewTask}>
-                  <div className='input-group'>
-                    <input
-                      type='text'
-                      name='title'
-                      className={`form-control ${this.hasErrorFor('title') ? 'is-invalid' : ''}`}
-                      placeholder='Task title'
-                      value={this.state.title}
-                      onChange={this.handleFieldChange}
-                    />
+                <NewTaskForm
+                manageSubmit={this.handleAddNewTask}
+                projectId={this.state.project.id}
+                errors={this.state.errors}
+                />
 
-                    <div className='input-group-append'>
-                      <button className='btn btn-primary'>Add</button>
-                    </div>
-
-                    {this.renderErrorFor('title')}
-                  </div>
-                </form>
-
-                <ul className='list-group mt-3'>
-                  {tasks.map(task => (
-                    <li
-                      className='list-group-item d-flex justify-content-between align-items-center'
-                      key={task.id}
-                    >
-                      {task.title}
-
-                      <button
-                        className='btn btn-primary btn-sm'
-                        onClick={this.handleMarkTaskAsCompleted.bind(
-                          this,
-                          task.id
-                        )}
-                      >
-                        Mark as completed
-                      </button>
-                    </li>
-                  ))}
-
-                </ul>
+                <SingleProjectTasksList
+                onTaskCompletion={this.handleMarkTaskAsCompleted}
+                tasks={tasks}
+                />
               </div>
             </div>
           </div>
