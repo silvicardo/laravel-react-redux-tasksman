@@ -3,8 +3,11 @@
 The focus of this exercise is to integrate Redux in an existing API + React Project.
 
 Objectives:
+
 -> do not change existing Api Structure
+
 -> create smaller components without changing React logic
+
 -> implement Redux
 
 Starter Laravel+React Project: https://github.com/ammezie/tasksman
@@ -14,13 +17,13 @@ Starter Laravel+React Project: https://github.com/ammezie/tasksman
 Clone the project repository by running the command below if you use SSH
 
 ```bash
-git clone git@github.com:ammezie/tasksman.git
+git clone git@github.com:silvicardo/laravel-react-redux-tasksman.git
 ```
 
 If you use https, use this instead
 
 ```bash
-git clone https://github.com/ammezie/tasksman.git
+git clone https://github.com/silvicardo/laravel-react-redux-tasksman.git
 ```
 
 After cloning, run:
