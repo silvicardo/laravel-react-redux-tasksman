@@ -72,7 +72,6 @@ class NewTaskForm extends Component {
     )
   }
 
-
 }
 
 export default NewTaskForm;
