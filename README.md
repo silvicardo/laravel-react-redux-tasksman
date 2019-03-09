@@ -1,6 +1,13 @@
-# tasksman
+# laravel-react-redux-tasksman
 
-A simple task management app
+The focus of this exercise is to integrate Redux in an existing API + React Project.
+
+Objectives:
+-> do not change existing Api Structure
+-> create smaller components without changing React logic
+-> implement Redux
+
+Starter Laravel+React Project: https://github.com/ammezie/tasksman
 
 ## Getting Started
 
