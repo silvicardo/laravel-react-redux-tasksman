@@ -1,76 +1,63 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {getSingleProject} from './../actions/actionCreators'
+import {getSingleProject,
+        addNewTaskToProject,
+        markProjectAsCompleted,
+        markTaskAsCompleted } from './../actions/actionCreators'
 import NewTaskForm from './secondary/NewTaskForm'
 import SingleProjectTasksList from './secondary/SingleProjectTasksList'
 import InvalidFeedback from './secondary/InvalidFeedback'
 
 class SingleProject extends Component {
+
   constructor (props) {
     super(props)
 
     this.state = {
-      // project: {},
-      // tasks: [],
       errors: []
     }
 
     this.handleAddNewTask = this.handleAddNewTask.bind(this)
 
-    this.handleMarkTaskAsCompleted = this.handleMarkTaskAsCompleted.bind(
-      this)
-    this.handleMarkProjectAsCompleted = this.handleMarkProjectAsCompleted.bind(
-      this
-    )
+    this.handleMarkTaskAsCompleted = this.handleMarkTaskAsCompleted.bind(this)
+
   }
 
-  componentWillMount () {
+  componentWillMount() {
+
     const projectId = this.props.match.params.id
 
-    this.props.getSingleProject(projectId);
-    //
-    // axios.get(`/api/projects/${projectId}`).then(response => {
-    //   this.setState({
-    //     project: response.data,
-    //     tasks: response.data.tasks
-    //   })
-    // })
+    this.props.getSingleProject(projectId)
+
   }
 
   handleAddNewTask(task) {
 
-    axios
-      .post('/api/tasks', task)
-      .then(response => {
-        // add new task to list of tasks
-        this.setState(prevState => ({
-          tasks: [...prevState.tasks, response.data]
-        }))
-      })
-      .catch(error => {
+    this.props.addNewTaskToProject(
+      task,
+      ()=>{}, //success handler
+      (error) => {//fail handler
         this.setState({
           errors: error.response.data.errors
         })
-      })
+      }
+    )
+
   }
 
-  handleMarkProjectAsCompleted () {
+  handleMarkProjectAsCompleted (projectId) {
     const { history } = this.props
 
-    axios
-      .put(`/api/projects/${this.state.project.id}`)
-      .then(response => history.push('/'))
+  this.props.markProjectAsCompleted(
+    projectId,
+    ()=> { history.push('/') } //success handler
+    )
   }
 
-  handleMarkTaskAsCompleted (taskId) {
-    axios.put(`/api/tasks/${taskId}`).then(response => {
-      this.setState(prevState => ({
-        tasks: prevState.tasks.filter(task => {
-          return task.id !== taskId
-        })
-      }))
-    })
+  handleMarkTaskAsCompleted(taskId) {
+
+    this.props.markTaskAsCompleted(taskId)
   }
 
   render () {
@@ -89,7 +76,7 @@ class SingleProject extends Component {
 
                 <button
                   className='btn btn-primary btn-sm'
-                  onClick={this.handleMarkProjectAsCompleted}
+                  onClick={this.handleMarkProjectAsCompleted.bind(this, project.id)}
                 >
                   Mark as completed
                 </button>
@@ -122,4 +109,10 @@ function mapStateToProps(reduxState){
   }
 }
 
-export default connect(mapStateToProps,{getSingleProject})(SingleProject)
+export default connect(
+                        mapStateToProps,
+                        { getSingleProject,
+                          addNewTaskToProject,
+                          markProjectAsCompleted,
+                          markTaskAsCompleted }
+                        )(SingleProject)

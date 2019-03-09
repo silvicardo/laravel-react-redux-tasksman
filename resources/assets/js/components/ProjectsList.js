@@ -9,11 +9,9 @@ class ProjectsList extends Component {
 
   constructor (props) {
     super(props)
-
   }
 
-  componentDidMount () {
-
+  componentDidMount() {
     this.props.getProjects()
   }
 
@@ -44,6 +42,7 @@ class ProjectsList extends Component {
       </div>
     )
   }
+  
 }
 
 function mapStateToProps(reduxState){

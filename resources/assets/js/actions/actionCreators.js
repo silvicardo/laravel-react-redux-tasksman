@@ -32,32 +32,28 @@ function getSingleProjectAction(project){
   }
 }
 
-// function projectIsCompletedAction(projectId){
-//   return {
-//     type: PROJECT_COMPLETED,
-//     projectId
-//   }
-// }
-//
-// function addTaskToProjectAction(projectId, task){
-//   return {
-//     type: ADD_PROJECT_TASK,
-//     projectId,
-//     task
-//   }
-// }
-//
-// function projectTaskIsCompletedAction(projectId, taskId){
-//   return {
-//     type: PROJECT_TASK_COMPLETED,
-//     projectId,
-//     taskId
-//   }
-// }
+function projectIsCompletedAction(projectId){
+  return {
+    type: PROJECT_COMPLETED,
+    projectId
+  }
+}
+
+function addTaskToProjectAction(task){
+  return {
+    type: ADD_PROJECT_TASK,
+    task
+  }
+}
+
+function projectTaskIsCompletedAction(taskId){
+  return {
+    type: PROJECT_TASK_COMPLETED,
+    taskId
+  }
+}
 
 //THUNKS
-
-//testing get action
 
 export function getProjects(){
   return dispatch => {
@@ -67,8 +63,6 @@ export function getProjects(){
     })
   }
 }
-
-//PLACEHOLDERS THUNKS
 
 export function addProject(project, success, fail){
   return dispatch => {
@@ -87,6 +81,7 @@ export function getSingleProject(projectId){
   return dispatch => {
     return axios.get(`/api/projects/${projectId}`)
     .then(response => {
+      console.log(response.data);
       dispatch(getSingleProjectAction(response.data))
     })
     .catch(err=>{
@@ -95,17 +90,40 @@ export function getSingleProject(projectId){
   }
 }
 
-// export function markTaskAsCompleted(projectId){
-//   return dispatch => {
-//     return
-// }
-//
-// export function addNewTaskToProject(projectId, task){
-//   return dispatch => {
-//     return
-// }
-//
-// export function markProjectAsCompleted(projectId){
-//     return dispatch => {
-//       return
-// }
+export function markProjectAsCompleted(projectId, success){
+    return dispatch => {
+      return axios.put(`/api/projects/${projectId}`)
+          .then(response => {
+            dispatch(projectIsCompletedAction(projectId))
+            success()
+          })
+       }
+}
+
+export function addNewTaskToProject(task, success, fail){
+  return dispatch => {
+    return axios.post('/api/tasks', task)
+        .then(response => {
+
+          console.log('data after add',response.data);
+
+          // add new task to list of tasks
+          dispatch(addTaskToProjectAction(response.data))
+
+          success()
+        })
+        .catch(error => {
+          fail(error)
+
+        })
+      }
+}
+
+export function markTaskAsCompleted(taskId){
+  return dispatch => {
+    return axios.put(`/api/tasks/${taskId}`)
+    .then(response => {
+        dispatch(projectTaskIsCompletedAction(taskId))
+      })
+    }
+}

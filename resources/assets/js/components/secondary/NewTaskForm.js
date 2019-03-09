@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import InvalidFeedback from './InvalidFeedback'
 
 class NewTaskForm extends Component {
 
