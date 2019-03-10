@@ -19,7 +19,9 @@ import SingleProject from './SingleProject';
 /**********************/
 
 class App extends Component {
-  render () {
+
+  render() {
+
     return (
 
         <React.Fragment>
@@ -32,7 +34,9 @@ class App extends Component {
         </React.Fragment>
 
     )
+
   }
+
 }
 
 /***************/
@@ -43,13 +47,13 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()//redux dev tools
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //redux dev tools
   )
 );
 
-/********************/
+/**********************/
 /* REACTDOM -> RENDER */
-/********************/
+/**********************/
 //Provider-> 'Provides' Redux Store to the App
 //BrowserRouter -> Handles App Routing
 //App Component

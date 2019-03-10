@@ -68070,11 +68070,11 @@ function (_Component) {
 
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_3__["createStore"])(_reducers_rootReducer__WEBPACK_IMPORTED_MODULE_4__["default"], Object(redux__WEBPACK_IMPORTED_MODULE_3__["compose"])(Object(redux__WEBPACK_IMPORTED_MODULE_3__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_6__["default"]), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //redux dev tools
 ));
-/********************/
+/**********************/
 
 /* REACTDOM -> RENDER */
 
-/********************/
+/**********************/
 //Provider-> 'Provides' Redux Store to the App
 //BrowserRouter -> Handles App Routing
 //App Component
@@ -68124,13 +68124,11 @@ var Header = function Header() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _secondary_NewProjectForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./secondary/NewProjectForm */ "./resources/assets/js/components/secondary/NewProjectForm.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _secondary_NewProjectForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./secondary/NewProjectForm */ "./resources/assets/js/components/secondary/NewProjectForm.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68148,7 +68146,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -68213,19 +68210,19 @@ function (_Component) {
     key: "render",
     value: function render() {
       var errors = this.state.errors;
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container py-4"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-6"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-header"
-      }, "Create new project"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, "Create new project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_secondary_NewProjectForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_secondary_NewProjectForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         errors: errors,
         manageSubmit: this.handleCreateNewProject
       }))))));
@@ -68233,13 +68230,13 @@ function (_Component) {
   }]);
 
   return NewProject;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]); //This component connects to Redux Store
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); //This component connects to Redux Store
 // -> Nothing to import from Redux Store to props
 // -> bringing in addProject from actionCreators (mapDispatchToProps)
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(null, {
-  addProject: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_4__["addProject"]
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(null, {
+  addProject: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__["addProject"]
 })(NewProject));
 
 /***/ }),
@@ -68253,14 +68250,12 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _secondary_ProjectLinks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./secondary/ProjectLinks */ "./resources/assets/js/components/secondary/ProjectLinks.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _secondary_ProjectLinks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./secondary/ProjectLinks */ "./resources/assets/js/components/secondary/ProjectLinks.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68278,7 +68273,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -68317,46 +68311,46 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      //our Redux State projects will be in props
+      //Redux State projects will be in props
       //thanks to mapStateToProps
       var projects = this.props.projects;
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container py-4"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-header"
-      }, "All projects"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, "All projects"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-primary btn-sm mb-3",
         to: "/create"
-      }, "Create new project"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_secondary_ProjectLinks__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, "Create new project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_secondary_ProjectLinks__WEBPACK_IMPORTED_MODULE_2__["default"], {
         projects: projects
       }))))));
     }
   }]);
 
   return ProjectsList;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]); //ReduxState {projects} -> props.projects
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); //ReduxState -> extract {projectsListReducer} -> props.projects
 
 
 function mapStateToProps(_ref) {
-  var projects = _ref.projects;
+  var projectsListReducer = _ref.projectsListReducer;
   return {
-    projects: projects
-  }; // {projects: projects }
+    projects: projectsListReducer.projects
+  };
 } //This component connects to Redux Store
 // -> provides projects from Store via mapStateToProps
 // -> getProjects function in props via mapDispatchToProps
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, {
-  getProjects: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_5__["getProjects"]
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
+  getProjects: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_4__["getProjects"]
 })(ProjectsList));
 
 /***/ }),
@@ -68370,15 +68364,13 @@ function mapStateToProps(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
-/* harmony import */ var _secondary_NewTaskForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./secondary/NewTaskForm */ "./resources/assets/js/components/secondary/NewTaskForm.js");
-/* harmony import */ var _secondary_SingleProjectTasksList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./secondary/SingleProjectTasksList */ "./resources/assets/js/components/secondary/SingleProjectTasksList.js");
-/* harmony import */ var _secondary_InvalidFeedback__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./secondary/InvalidFeedback */ "./resources/assets/js/components/secondary/InvalidFeedback.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
+/* harmony import */ var _secondary_NewTaskForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./secondary/NewTaskForm */ "./resources/assets/js/components/secondary/NewTaskForm.js");
+/* harmony import */ var _secondary_SingleProjectTasksList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./secondary/SingleProjectTasksList */ "./resources/assets/js/components/secondary/SingleProjectTasksList.js");
+/* harmony import */ var _secondary_InvalidFeedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./secondary/InvalidFeedback */ "./resources/assets/js/components/secondary/InvalidFeedback.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -68396,7 +68388,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -68487,26 +68478,26 @@ function (_Component) {
     value: function render() {
       var workingProject = this.props.workingProject;
       console.log('workingProject', workingProject);
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container py-4"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-header"
-      }, workingProject.name), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, workingProject.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, workingProject.description), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, workingProject.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn btn-primary btn-sm",
         onClick: this.handleMarkProjectAsCompleted.bind(this, workingProject.id)
-      }, "Mark as completed"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_secondary_NewTaskForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "Mark as completed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_secondary_NewTaskForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
         manageSubmit: this.handleAddNewTask,
         projectId: workingProject.id,
         errors: this.state.errors
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_secondary_SingleProjectTasksList__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_secondary_SingleProjectTasksList__WEBPACK_IMPORTED_MODULE_4__["default"], {
         onTaskCompletion: this.handleMarkTaskAsCompleted,
         tasks: workingProject.tasks
       }))))));
@@ -68514,24 +68505,24 @@ function (_Component) {
   }]);
 
   return SingleProject;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]); //ReduxState {workingProject} -> props.project
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); //ReduxState -> extract {singleProjectReducer} -> props.workingProject
 
 
 function mapStateToProps(_ref) {
-  var workingProject = _ref.workingProject;
+  var singleProjectReducer = _ref.singleProjectReducer;
   return {
-    workingProject: workingProject
-  }; //{ workingProject: workingProject }
+    workingProject: singleProjectReducer.workingProject
+  };
 } //This component connects to reduxStore
 // -> provides workingProject from Store via mapStateToProps
 // ->  project and tasks functions to props via mapDispatchToProps
 
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, {
-  getSingleProject: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__["getSingleProject"],
-  addNewTaskToProject: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__["addNewTaskToProject"],
-  markProjectAsCompleted: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__["markProjectAsCompleted"],
-  markTaskAsCompleted: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_3__["markTaskAsCompleted"]
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, {
+  getSingleProject: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_2__["getSingleProject"],
+  addNewTaskToProject: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_2__["addNewTaskToProject"],
+  markProjectAsCompleted: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_2__["markProjectAsCompleted"],
+  markTaskAsCompleted: _actions_actionCreators__WEBPACK_IMPORTED_MODULE_2__["markTaskAsCompleted"]
 })(SingleProject));
 
 /***/ }),
@@ -68901,16 +68892,15 @@ var SingleProjectTasksList = function SingleProjectTasksList(_ref) {
 
 /***/ }),
 
-/***/ "./resources/assets/js/reducers/rootReducer.js":
-/*!*****************************************************!*\
-  !*** ./resources/assets/js/reducers/rootReducer.js ***!
-  \*****************************************************/
+/***/ "./resources/assets/js/reducers/projectsListReducer.js":
+/*!*************************************************************!*\
+  !*** ./resources/assets/js/reducers/projectsListReducer.js ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return rootReducer; });
 /* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -68927,16 +68917,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initialState = {
   //projects array for ProjectsList and NewProject components
-  projects: [],
-  //workingProject for SingleProjectComponent
-  workingProject: {
-    id: 1,
-    name: '',
-    tasks: [],
-    description: ''
-  }
+  projects: []
 };
-function rootReducer() {
+
+var projectsListReducer = function projectsListReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
@@ -68945,18 +68929,6 @@ function rootReducer() {
       //{...a copy of the state, allProjects from api}
       return _objectSpread({}, state, {
         projects: action.projects
-      });
-
-    case _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__["ADD_PROJECT"]:
-      //{...a copy of the state, allprojects in state + project from NewProject-> NewProjectForm component}
-      return _objectSpread({}, state, {
-        projects: [].concat(_toConsumableArray(state.projects), [action.project])
-      });
-
-    case _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__["GET_SINGLE_PROJECT"]:
-      //{...a copy of the state, singleProject from api }
-      return _objectSpread({}, state, {
-        workingProject: _objectSpread({}, action.project)
       });
 
     case _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__["PROJECT_COMPLETED"]:
@@ -68974,6 +68946,89 @@ function rootReducer() {
 
       return _objectSpread({}, state, {
         projects: updatedProjects
+      });
+
+    case _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__["ADD_PROJECT"]:
+      //{...a copy of the state, allprojects in state + project from NewProject-> NewProjectForm component}
+      return _objectSpread({}, state, {
+        projects: [].concat(_toConsumableArray(state.projects), [action.project])
+      });
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (projectsListReducer);
+
+/***/ }),
+
+/***/ "./resources/assets/js/reducers/rootReducer.js":
+/*!*****************************************************!*\
+  !*** ./resources/assets/js/reducers/rootReducer.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _projectsListReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectsListReducer */ "./resources/assets/js/reducers/projectsListReducer.js");
+/* harmony import */ var _singleProjectReducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./singleProjectReducer */ "./resources/assets/js/reducers/singleProjectReducer.js");
+
+
+ //combining reducers to let them handle projects and singleProject separately
+
+var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  projectsListReducer: _projectsListReducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  singleProjectReducer: _singleProjectReducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (rootReducer);
+
+/***/ }),
+
+/***/ "./resources/assets/js/reducers/singleProjectReducer.js":
+/*!**************************************************************!*\
+  !*** ./resources/assets/js/reducers/singleProjectReducer.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../actions/actionCreators */ "./resources/assets/js/actions/actionCreators.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var initialState = {
+  //workingProject for SingleProjectComponent
+  workingProject: {
+    id: 1,
+    name: '',
+    tasks: [],
+    description: ''
+  }
+};
+
+var singleProjectReducer = function singleProjectReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__["GET_SINGLE_PROJECT"]:
+      //{...a copy of the state, singleProject from api }
+      return _objectSpread({}, state, {
+        workingProject: _objectSpread({}, action.project)
       });
 
     case _actions_actionCreators__WEBPACK_IMPORTED_MODULE_0__["ADD_PROJECT_TASK"]:
@@ -69013,7 +69068,9 @@ function rootReducer() {
     default:
       return state;
   }
-}
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (singleProjectReducer);
 
 /***/ }),
 

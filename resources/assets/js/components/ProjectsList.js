@@ -1,4 +1,4 @@
-import axios from 'axios'
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectsLinks from './secondary/ProjectLinks';
@@ -27,7 +27,7 @@ class ProjectsList extends Component {
 
   render () {
 
-    //our Redux State projects will be in props
+    //Redux State projects will be in props
     //thanks to mapStateToProps
     const { projects } = this.props;
 
@@ -57,10 +57,10 @@ class ProjectsList extends Component {
 
 }
 
-//ReduxState {projects} -> props.projects
-function mapStateToProps({projects}){
+//ReduxState -> extract {projectsListReducer} -> props.projects
+function mapStateToProps({projectsListReducer}){
 
-  return { projects }; // {projects: projects }
+  return { projects: projectsListReducer.projects };
 
 }
 

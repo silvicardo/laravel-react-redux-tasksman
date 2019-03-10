@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { Component } from 'react';
 import NewProjectForm from './secondary/NewProjectForm';
 import {connect} from 'react-redux';

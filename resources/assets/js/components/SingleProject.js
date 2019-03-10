@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {getSingleProject,
@@ -130,10 +130,10 @@ class SingleProject extends Component {
 }
 
 
-//ReduxState {workingProject} -> props.project
-function mapStateToProps({workingProject}) {
+//ReduxState -> extract {singleProjectReducer} -> props.workingProject
+function mapStateToProps({singleProjectReducer}) {
 
-  return { workingProject }; //{ workingProject: workingProject }
+  return { workingProject: singleProjectReducer.workingProject };
 
 }
 
