@@ -1,55 +1,66 @@
-import React, { Component } from 'react'
-import InvalidFeedback from './InvalidFeedback'
+import React, { Component } from 'react';
+import InvalidFeedback from './InvalidFeedback';
 
 class NewProjectForm extends Component {
 
   constructor(props){
-    super(props)
+    super(props);
 
+    //REACT STATE manages form fields
     this.state = {
       name: '',
       description: ''
     }
 
-    this.handleFieldChange = this.handleFieldChange.bind(this)
-    this.handleNewProjectSubmit = this.handleNewProjectSubmit.bind(this)
+    // preserve the value of this
+    this.handleFieldChange = this.handleFieldChange.bind(this);
+    this.handleNewProjectSubmit = this.handleNewProjectSubmit.bind(this);
 
   }
 
+  /***********************/
+  /* COMPONENT FUNCTIONS */
+  /***********************/
+
   handleNewProjectSubmit(e){
-    event.preventDefault()
+
+    event.preventDefault();//no refresh
 
     const project = {
       name: this.state.name,
       description: this.state.description
-    }
+    };
 
     this.props.manageSubmit(project);
 
   }
 
   handleFieldChange (event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+
+    this.setState({ [event.target.name]: event.target.value });
+
   }
 
   hasErrorFor (field) {
-    return !!this.props.errors[field]
+
+    return !!this.props.errors[field];
+
   }
 
   renderErrorFor (field) {
-    if (this.hasErrorFor(field)) {
-      return (
-        <InvalidFeedback error={this.props.errors[field][0]} />
-      )
-    }
+
+      if (this.hasErrorFor(field)) return ( <InvalidFeedback error={this.props.errors[field][0]} /> );
+
   }
 
+  /*****************/
+  /* RENDER METHOD */
+  /*****************/
 
   render(){
 
     return(
+
       <form onSubmit={this.handleNewProjectSubmit}>
 
         <div className='form-group'>
@@ -75,16 +86,15 @@ class NewProjectForm extends Component {
             value={this.state.description}
             onChange={this.handleFieldChange}
           />
-
           {this.renderErrorFor('description')}
         </div>
 
         <button className='btn btn-primary'>Create</button>
+
       </form>
+
     )
   }
-
-
 
 }
 

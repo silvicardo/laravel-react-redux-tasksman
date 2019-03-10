@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const SingleProjectTasksList = (({tasks, onTaskCompletion}) => (
+//just need a stateless functional component
+
+const SingleProjectTasksList = (({tasks, onTaskCompletion}) => (//extract tasks array, onTaskCompletion callback
 
   <ul className='list-group mt-3'>
+
+    {/* Generate a li forEach task */}
     {tasks.map(task => (
       <li
         className='list-group-item d-flex justify-content-between align-items-center'
@@ -23,4 +27,4 @@ const SingleProjectTasksList = (({tasks, onTaskCompletion}) => (
 
 ))
 
-export default SingleProjectTasksList
+export default SingleProjectTasksList;

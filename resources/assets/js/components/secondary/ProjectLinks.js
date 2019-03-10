@@ -1,8 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ProjectsLinks = ({projects}) => (
+//just need a stateless functional component
+
+const ProjectsLinks = ({projects}) => (//extract projects array from props
+
   <ul className='list-group list-group-flush'>
+
+    {/* Generate a link component forEach project */}
     {projects.map((project, index) => (
       <Link key={index}
         className='list-group-item list-group-item-action d-flex justify-content-between align-items-center'
@@ -14,6 +19,7 @@ const ProjectsLinks = ({projects}) => (
         </span>
       </Link>)
     )}
+
   </ul>
 );
 

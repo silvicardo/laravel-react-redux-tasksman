@@ -4,79 +4,105 @@ import {connect} from 'react-redux'
 import {getSingleProject,
         addNewTaskToProject,
         markProjectAsCompleted,
-        markTaskAsCompleted } from './../actions/actionCreators'
-import NewTaskForm from './secondary/NewTaskForm'
-import SingleProjectTasksList from './secondary/SingleProjectTasksList'
-import InvalidFeedback from './secondary/InvalidFeedback'
+        markTaskAsCompleted } from './../actions/actionCreators';
+import NewTaskForm from './secondary/NewTaskForm';
+import SingleProjectTasksList from './secondary/SingleProjectTasksList';
+import InvalidFeedback from './secondary/InvalidFeedback';
 
 class SingleProject extends Component {
 
   constructor (props) {
-    super(props)
+    super(props);
 
+    // REACT state will only handle input fields errors
     this.state = {
       errors: []
-    }
+    };
 
-    this.handleAddNewTask = this.handleAddNewTask.bind(this)
-
-    this.handleMarkTaskAsCompleted = this.handleMarkTaskAsCompleted.bind(this)
+    // preserve the value of this
+    this.handleAddNewTask = this.handleAddNewTask.bind(this);
+    this.handleMarkTaskAsCompleted = this.handleMarkTaskAsCompleted.bind(this);
+    this.redirectHome = this.redirectHome.bind(this);
+    this.handleError = this.handleError.bind(this);
 
   }
+
+  /*********************/
+  /* LIFECYCLE METHODS */
+  /*********************/
 
   componentWillMount() {
 
-    const projectId = this.props.match.params.id
+    const projectId = this.props.match.params.id;
 
-    this.props.getSingleProject(projectId)
+    this.props.getSingleProject(projectId);
 
   }
+
+  /***********************/
+  /* COMPONENT FUNCTIONS */
+  /***********************/
 
   handleAddNewTask(task) {
 
-    this.props.addNewTaskToProject(
-      task,
-      ()=>{}, //success handler
-      (error) => {//fail handler
-        this.setState({
-          errors: error.response.data.errors
-        })
-      }
-    )
+    //function(newTaskFromTheApi, successHandler, errorHandler)
+    this.props.addNewTaskToProject(task,()=>{}, this.handleError);
 
   }
 
-  handleMarkProjectAsCompleted (projectId) {
+  handleMarkProjectAsCompleted(projectId) {
+
     const { history } = this.props
 
-  this.props.markProjectAsCompleted(
-    projectId,
-    ()=> { history.push('/') } //success handler
-    )
+    this.props.markProjectAsCompleted(projectId, this.redirectHome);
+
   }
 
   handleMarkTaskAsCompleted(taskId) {
 
-    this.props.markTaskAsCompleted(taskId)
+    this.props.markTaskAsCompleted(taskId);
+
   }
 
-  render () {
-    const { project} = this.props
-    console.log('project',project);
+  redirectHome() {
+
+      console.log('succesfully marked project completion, back to projectsList');
+
+      this.props.history.push('/');
+
+  }
+
+  handleError(error) {
+
+    this.setState({ errors: error.response.data.errors });
+
+  }
+
+  /*****************/
+  /* RENDER METHOD */
+  /*****************/
+
+  render() {
+
+    const { workingProject } = this.props
+
+    console.log('workingProject', workingProject);
 
     return (
       <div className='container py-4'>
         <div className='row justify-content-center'>
           <div className='col-md-8'>
             <div className='card'>
-              <div className='card-header'>{project.name}</div>
+
+              <div className='card-header'>{workingProject.name}</div>
 
               <div className='card-body'>
-                <p>{project.description}</p>
+
+                <p>{workingProject.description}</p>
 
                 <button
                   className='btn btn-primary btn-sm'
-                  onClick={this.handleMarkProjectAsCompleted.bind(this, project.id)}
+                  onClick={this.handleMarkProjectAsCompleted.bind(this, workingProject.id)}
                 >
                   Mark as completed
                 </button>
@@ -85,14 +111,14 @@ class SingleProject extends Component {
 
                 <NewTaskForm
                 manageSubmit={this.handleAddNewTask}
-                projectId={project.id}
+                projectId={workingProject.id}
                 errors={this.state.errors}
                 />
 
 
                 <SingleProjectTasksList
                 onTaskCompletion={this.handleMarkTaskAsCompleted}
-                tasks={project.tasks}
+                tasks={workingProject.tasks}
                 />
               </div>
             </div>
@@ -103,16 +129,21 @@ class SingleProject extends Component {
   }
 }
 
-function mapStateToProps(reduxState){
-  return {
-    project: reduxState.workingProject
-  }
+
+//ReduxState {workingProject} -> props.project
+function mapStateToProps({workingProject}) {
+
+  return { workingProject }; //{ workingProject: workingProject }
+
 }
 
+//This component connects to reduxStore
+  // -> provides workingProject from Store via mapStateToProps
+  // ->  project and tasks functions to props via mapDispatchToProps
 export default connect(
                         mapStateToProps,
                         { getSingleProject,
                           addNewTaskToProject,
                           markProjectAsCompleted,
                           markTaskAsCompleted }
-                        )(SingleProject)
+                        )(SingleProject);

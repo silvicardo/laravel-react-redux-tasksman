@@ -1,29 +1,38 @@
 import axios from 'axios'
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import ProjectsLinks from './secondary/ProjectLinks'
-import {connect} from 'react-redux'
-import {getProjects} from './../actions/actionCreators'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import ProjectsLinks from './secondary/ProjectLinks';
+import {connect} from 'react-redux';
+import {getProjects} from './../actions/actionCreators';
 
 class ProjectsList extends Component {
 
   constructor (props) {
-    super(props)
+    super(props);
   }
+
+  /*********************/
+  /* LIFECYCLE METHODS */
+  /*********************/
 
   componentDidMount() {
-    this.props.getProjects()
+
+    this.props.getProjects();
+
   }
 
-  render () {
-    //con redux troviamo grazie
-    //a mapStateToProps i projects in
-    //props
-    const { projects } = this.props
+  /*****************/
+  /* RENDER METHOD */
+  /*****************/
 
-    console.log(projects);
+  render () {
+
+    //our Redux State projects will be in props
+    //thanks to mapStateToProps
+    const { projects } = this.props;
 
     return (
+
       <div className='container py-4'>
         <div className='row justify-content-center'>
           <div className='col-md-8'>
@@ -36,19 +45,26 @@ class ProjectsList extends Component {
                 </Link>
                 <ProjectsLinks projects={projects} />
               </div>
+
             </div>
           </div>
         </div>
       </div>
+
     )
+
   }
-  
+
 }
 
-function mapStateToProps(reduxState){
-  return {
-    projects: reduxState.projects
-  }
+//ReduxState {projects} -> props.projects
+function mapStateToProps({projects}){
+
+  return { projects }; // {projects: projects }
+
 }
 
-export default connect(mapStateToProps,{getProjects})(ProjectsList)
+//This component connects to Redux Store
+// -> provides projects from Store via mapStateToProps
+// -> getProjects function in props via mapDispatchToProps
+export default connect(mapStateToProps,{getProjects})(ProjectsList);
